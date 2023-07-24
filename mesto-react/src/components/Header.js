@@ -1,6 +1,8 @@
+import srcLogo from '../images/logo.svg';
+
 export default function Header(){
     return(
-    <section class="header">
-        <img src="<%=require('./images/logo.svg')%>" alt="Логотип Место Россия" class="header__logo"/>
+    <section className="header">
+        <img src={srcLogo} alt="Логотип Место Россия" className="header__logo"/>
       </section>)
 }

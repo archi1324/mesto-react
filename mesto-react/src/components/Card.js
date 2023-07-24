@@ -1,16 +1,15 @@
-export default function Card(props){
-    function handleClick() {
-        props.onCardClick(props)
-      }
-
+export default function Card(card){
+    function handleClick(){
+        card.CardClick(card);
+    }
 return(
     <div className="card">
-        <img src={props.link}  alt={props.title} onClick={handleClick} className="card__image"/>
+        <img src={card.link}  alt={card.name} onClick={handleClick} className="card__image"/>
         <div className ="card__info">
-          <h2 className ="card__title">{props.title}</h2>
+          <h2 className ="card__title">{card.name}</h2>
           <div>
           <button type="button" className="card__like"/>
-          <p className="card__like-counter">{props.likes.length}</p>
+          <p className="card__like-counter">{card.likes.length}</p>
           </div>
         </div>
       </div>
