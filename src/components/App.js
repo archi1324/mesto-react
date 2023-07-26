@@ -25,14 +25,14 @@ export default function App() {
       setSelectedCard(null);
     }
   return (
-    <body className="page">
+    <div className="page">
     <div className="page__container">
         <Header />
         <Main 
-        EditAvatar={handleEditAvatarClick}
-        EditProfile={handleEditProfileClick}
-        AddPlace={handleAddPlaceClick}
-        CardClick={handleCardClick}
+        editAvatar={handleEditAvatarClick}
+        editProfile={handleEditProfileClick}
+        addPlace={handleAddPlaceClick}
+        cardClick={handleCardClick}
         />
         <Footer />
         <PopupWithForm 
@@ -91,6 +91,6 @@ export default function App() {
             onClose={closeAllPopups}
             />
     </div>
-    </body>
+    </div>
   );
 }

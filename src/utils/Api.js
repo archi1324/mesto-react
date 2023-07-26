@@ -6,7 +6,7 @@ class Api {
         this._headers = config.headers; 
     } 
 
-    _serverError(res) { 
+    _checkResponse(res) { 
         return res.ok ? 
            res.json(): 
           Promise.reject(res.status); 
@@ -16,14 +16,14 @@ class Api {
       return fetch(`${this._url}/users/me`, { 
         headers: this._headers, 
       }) 
-      .then((res) => this._serverError(res)); 
+      .then((res) => this._checkResponse(res)); 
     } 
 
     getInitialCards() { 
       return fetch(`${this._url}/cards`, { 
         headers: this._headers 
       }) 
-      .then((res) => this._serverError(res)); 
+      .then((res) => this._checkResponse(res)); 
     } 
 
  
@@ -34,7 +34,7 @@ class Api {
           headers: this._headers, 
           body: JSON.stringify(data), 
         }) 
-        .then((res) => this._serverError(res)); 
+        .then((res) => this._checkResponse(res)); 
     } 
 
     addNewCard(data) { 
@@ -43,7 +43,7 @@ class Api {
         headers: this._headers, 
         body: JSON.stringify(data), 
       }) 
-      .then((res) => this._serverError(res)); 
+      .then((res) => this._checkResponse(res)); 
     } 
 
     deleteCard(cardId) { 
@@ -51,7 +51,7 @@ class Api {
         method: "DELETE", 
         headers: this._headers, 
       }) 
-      .then((res) => this._serverError(res)); 
+      .then((res) => this._checkResponse(res)); 
     } 
 
     likeCard(cardId) { 
@@ -59,7 +59,7 @@ class Api {
         method: "PUT", 
         headers: this._headers, 
       }) 
-      .then((res) => this._serverError(res)); 
+      .then((res) => this._checkResponse(res)); 
     } 
 
     deleteCardLike(cardId) { 
@@ -67,7 +67,7 @@ class Api {
         method: "DELETE", 
         headers: this._headers, 
       }) 
-        .then((res) => this._serverError(res)); 
+        .then((res) => this._checkResponse(res)); 
       } 
 
     changeAvatar(data) { 
@@ -76,7 +76,7 @@ class Api {
         headers: this._headers, 
         body: JSON.stringify(data), 
       }) 
-      .then((res) => this._serverError(res)); 
+      .then((res) => this._checkResponse(res)); 
     } 
 }
 
