@@ -11,6 +11,8 @@ export default function AvatarPopup(props) {
     });
   }
 
+  React.useEffect(() => {avatarRef.current.value = ''}, [props.isOpen]);
+
   return (
 <PopupWithForm onSubmit={handleSubmit}
   isOpen={props.isOpen} onClose={props.onClose}

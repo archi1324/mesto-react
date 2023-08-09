@@ -13,7 +13,7 @@ export default function EditPopup(props) {
     React.useEffect(() => {
       setName(currentUser.name);
       setDescription(currentUser.about);
-    }, [currentUser]); 
+    }, [currentUser, props.isOpen]); 
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -37,14 +37,14 @@ export default function EditPopup(props) {
         isOpen={props.isOpen} onClose={props.onClose}
         title={"Редактировать профиль"} buttonSave={"Сохранить"}
         name={"edit"} form={"form popup__form-edit"}>
-            <input value={name} onChange={handleChangeName}
+            <input value={name || ''} onChange={handleChangeName}
                 className="popup__input  popup__field" required
                 type="text" name="name" id="name__input"
                 minLength="2" maxLength="40" placeholder="Имя"/>
                 <div className="popup__span-container">
                     <span id="name__input-error" className="popup__input-error"></span>
                 </div>
-            <input value={description} onChange={handleChangeDescription}
+            <input value={description || ''} onChange={handleChangeDescription}
                 className="popup__input  popup__subtitle" required
                 type="text" name="about" id="name__input_description"
                 minLength="2" maxLength="200" placeholder="Профессия"/>
